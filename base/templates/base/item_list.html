@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Item List</title>
+  </head>
+  <body>
+    <p>{{request.user}}</p>
+    <hr>
+    <h1>My Shopping List</h1>
+    <a href="{% url 'item-create' %}">Add an Item</a>
+    <table>
+      <tr>
+        <th>Item</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      {% for item in items %}
+      <tr>
+        <td>{{item.item_name}}</td>
+        <td><a href="{% url 'item' item.id %}">View</a></td>
+        <td><a href="{% url 'item-update' item.id %}">Edit</a></td>
+        <td><a href="{% url 'item-delete' item.id %}">Delete</a></td>
+
+      </tr>
+      {% empty %}
+        <h3>No items in list</h3>
+      {% endfor %}
+    </table>
+  </body>
+</html>
