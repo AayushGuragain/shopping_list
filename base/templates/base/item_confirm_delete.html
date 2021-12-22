@@ -1,6 +1,6 @@
 {% extends 'base/main.html' %}
 {% block content %}
-    <a id = "logout" href="{% url 'items' %}">Go Back</a>
+    <a href="{% url 'items' %}">Go Back</a>
     <form method="post">
       {% csrf_token %}
       <p >Please confirm the deletion of "{{item}}"?</p>

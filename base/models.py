@@ -13,4 +13,7 @@ class Item(models.Model):
         return self.item_name
 
     class Meta:
-        ordering = ['purchased']
+        '''
+        Orders items based on if they are purchased, and then if they are not, when they are created. The first creation is prioritized.
+        '''
+        ordering = ['purchased', 'created']
