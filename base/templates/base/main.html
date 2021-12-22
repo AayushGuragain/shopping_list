@@ -1,0 +1,84 @@
+<!-- This is the template all other templates will inherit from. -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Shopping List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap" rel="stylesheet">
+    <style media="screen">
+      body{
+        background-color: #F2D388;
+        font-family: 'Oooh Baby', cursive;
+        font-size: 250%;
+        padding-top: 50px;
+      }
+      .container{
+        max-width: 600px;
+        margin: auto;
+        background-color: #FAFAFA;
+        border-radius: 10px;
+        box-shadow: 10px 10px 5px grey;
+        text-align: center;
+      }
+
+      #logout{
+        font-size: 75%;
+        float: right;
+        margin: 1px 10px 1px 10px;
+      }
+
+      .boxa{
+        height:30px;
+        width: auto;
+        font-size:16pt;
+      }
+
+      a:link, a:visited {
+        color: green;
+      }
+      a:hover {
+        color: red;
+      }
+      a:active {
+        color: blue;
+      }
+
+
+      .button {
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+      a{
+        text-decoration: none;
+      }
+      td {
+        padding: 0 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      {% block content %}
+
+      {% endblock content %}
+
+    </div>
+  </body>
+</html>

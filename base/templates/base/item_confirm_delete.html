@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Delete</title>
-  </head>
-  <body>
-    <a href="{% url 'items' %}">Go Back</a>
+{% extends 'base/main.html' %}
+{% block content %}
+    <a id = "logout" href="{% url 'items' %}">Go Back</a>
     <form method="post">
       {% csrf_token %}
-      <p>Please confirm the deletion of "{{item}}"?</p>
-      <input type="submit" value="Delete"/>
+      <p >Please confirm the deletion of "{{item}}"?</p>
+      <input class="button" type="submit" value="Delete"/>
     </form>
-  </body>
-</html>
+  {% endblock content %}

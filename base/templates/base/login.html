@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Login</title>
-  </head>
-  <body>
+{% extends 'base/main.html' %}
+{% block content %}
     <h1>Login</h1>
 
     <form method="post">
       {% csrf_token %}
       {{form.as_p}}
-      <input type="submit" value="Login">
+      <input class = "button" type="submit" value="Login">
     </form>
 
-    <p> <a href="{% url 'register' %}">Register</a> </p>
-  </body>
-</html>
+    <p>If you do not have an account. <br><a href="{% url 'register' %}">Register</a> </p>
+  {% endblock content %}

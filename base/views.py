@@ -108,6 +108,7 @@ class ItemUpdate(LoginRequiredMixin, UpdateView):
     fields = ['item_name', 'description', 'purchased']
     success_url = reverse_lazy('items')
 
+
 class ItemDelete(LoginRequiredMixin, DeleteView):
     '''
         LoginRequiredMixin restricts users without account to access any data.

@@ -1,35 +1,41 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Item List</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-  <body>
-    {% if request.user.is_authenticated %}
-    <p>{{request.user}}</p>
-    <a href="{% url 'logout' %}">Logout</a>
-    {% else %}
-    <a href="{% url 'login' %}">Login</a>
-    {% endif %}
+{% extends 'base/main.html' %}
+{% block content %}
+
+<div class="header-bar">
+  {% if request.user.is_authenticated %}
+  <a id = "logout" href="{% url 'logout' %}">Logout</a>
+  {% else %}
+  <a href="{% url 'login' %}">Login</a>
+  {% endif %}
+  <div>
+    <h1>Hello {{request.user|title}}</h1>
+    <h4 style="margin:0">You are yet to buy <i style="font-size:150%">{{count}}</i> item{{count|pluralize:"s"}}. </h4>
+  </div>
+</div>
+
     <hr>
-    <h1>My Shopping List</h1>
+    <!-- <h1>My Shopping List</h1> -->
     <a href="{% url 'item-create' %}">Add an Item</a>
 
     <form method="get">
-      <input type="text" name="search-area" value="{{search_input}}">
-      <input type="submit" value="Search">
+      <input class = "boxa" type="text" name="search-area" value="{{search_input}}">
+      <input class="button" type="submit" value="Search">
     </form>
     <table>
       <tr>
-        <th>Item</th>
         <th></th>
         <th></th>
         <th></th>
+        <th></th>
+
       </tr>
       {% for item in items %}
       <tr>
-        <td>{{item.item_name}}</td>
+        {% if item.purchased %}
+          <td style="text-decoration:line-through">{{item.item_name}}</td>
+        {% else %}
+          <td>{{item.item_name}}</td>
+        {% endif %}
         <td><a href="{% url 'item' item.id %}"><button style="font-size:24px"><i class="fa fa-eye"></i></button></a></td>
         <td><a href="{% url 'item-update' item.id %}">Edit</a></td>
         <td><a href="{% url 'item-delete' item.id %}">Delete</a></td>
@@ -39,5 +45,4 @@
         <h3>No items in list</h3>
       {% endfor %}
     </table>
-  </body>
-</html>
+  {% endblock content %}

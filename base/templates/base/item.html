@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Item: {{item.item_name}}</title>
-  </head>
-  <body>
-    <h2><u>Item</u></h2>
+{% extends 'base/main.html' %}
+{% block content %}
+    <a href="{% url 'items' %}">Go Back</a>
+    <!-- <h2><u>Item</u></h2> -->
     <h2>{{item.item_name}} </h2>
     <p>{{item.description}}</p>
-  </body>
-</html>
+
+  {% endblock content %}
