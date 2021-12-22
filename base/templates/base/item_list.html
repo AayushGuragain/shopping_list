@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Item List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     {% if request.user.is_authenticated %}
@@ -14,6 +15,11 @@
     <hr>
     <h1>My Shopping List</h1>
     <a href="{% url 'item-create' %}">Add an Item</a>
+
+    <form method="get">
+      <input type="text" name="search-area" value="{{search_input}}">
+      <input type="submit" value="Search">
+    </form>
     <table>
       <tr>
         <th>Item</th>
@@ -24,7 +30,7 @@
       {% for item in items %}
       <tr>
         <td>{{item.item_name}}</td>
-        <td><a href="{% url 'item' item.id %}">View</a></td>
+        <td><a href="{% url 'item' item.id %}"><button style="font-size:24px"><i class="fa fa-eye"></i></button></a></td>
         <td><a href="{% url 'item-update' item.id %}">Edit</a></td>
         <td><a href="{% url 'item-delete' item.id %}">Delete</a></td>
 
