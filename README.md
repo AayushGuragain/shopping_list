@@ -6,4 +6,4 @@ December 23, 2021 - 00:50:09
 Django version 3.2.5, using settings 'shopping_list.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CTRL-BREAK."
-5. Copy the http link and run it in your browser.
+5. Copy the http link and run it in your browser. The http link might be different from the example.
