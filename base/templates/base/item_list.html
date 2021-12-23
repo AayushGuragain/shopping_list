@@ -12,18 +12,24 @@
     <h1>Hello {{request.user|title}}</h1>
     <h4 style="margin:0">You are yet to buy <i style="font-size:150%">{{count}}</i> item{{count|pluralize:"s"}}. </h4>
   </div>
+  <hr>
 </div>
 
-    <hr>
+
     <!-- <h1>My Shopping List</h1> -->
-    <a href="{% url 'item-create' %}">Add an Item</a>
 
     <form method="get">
       <input class = "boxa" type="text" name="search-area" value="{{search_input}}">
       <input class="button" type="submit" value="Search">
     </form>
+    <a href="{% url 'item-create' %}"><i style="font-size:150%" class="fa fa-plus" aria-hidden="true"></i></a>
+
+
     <table>
       <tr>
+        <th></th>
+        <th></th>
+        <th></th>
         <th></th>
         <th></th>
         <th></th>
@@ -34,13 +40,16 @@
       <tr>
         {% if item.purchased %}
         <!-- Strike through if item purchased already. -->
-          <td style="text-decoration:line-through">{{item.item_name}}</td>
+          <td style="text-decoration:line-through"><a href="{% url 'item-update' item.id %}">{{item.item_name}}</a></td>
         {% else %}
-          <td>{{item.item_name}}</td>
+          <td><a href="{% url 'item-update' item.id %}">{{item.item_name}}</a></td>
         {% endif %}
-        <td><a href="{% url 'item' item.id %}"><button style="font-size:24px"><i class="fa fa-eye"></i></button></a></td>
-        <td><a href="{% url 'item-update' item.id %}">Edit</a></td>
-        <td><a href="{% url 'item-delete' item.id %}">Delete</a></td>
+        <td></td>
+        <td><a href="{% url 'item' item.id %}"><i class="fa fa-eye"></i></a></td>
+        <td></td>
+        <td></td>
+        <td ><a href="{% url 'item-delete' item.id %}"><i class="fa fa-trash"></i></a></td>
+        <td></td>
 
       </tr>
       {% empty %}

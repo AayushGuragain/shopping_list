@@ -4,7 +4,7 @@
 
     <h1>Register</h1>
 
-    <form style="font-family:'Times New Roman', Times, serif; font-size:60%; text-align: left" method="post">
+    <form id = "reg-form" method="post">
       {% csrf_token %}
       {{form.as_p}}
       <input class="button" type="submit" value="Register">

@@ -1,4 +1,5 @@
 <!-- This is the template all other templates will inherit from. -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -28,7 +29,25 @@
         box-shadow: 10px 10px 5px grey;
         text-align: center;
       }
-
+      .header-bar{
+        background-color: #cce0ff;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+      input[type=text],
+      input[type=password],
+      textarea{
+        border: 1px solid;
+        border-radius: 5px;
+        padding: 10px;
+        width: 60%;
+        font-size: 60%;
+      }
+       input[type = checkbox]{
+         width: 20px;
+         height: 20px;
+      }
+      /* The django defaults can be edited if we view the items from inspect mode and change them accordingly based on css heirarchy. */
       #logout{
         font-size: 75%;
         float: right;
@@ -50,7 +69,12 @@
       a:active {
         color: blue;
       }
-
+      .helptext{
+        display: none;
+      }
+      #reg-form ul{
+        display: none;
+      }
 
       .button {
         background-color: #4CAF50;
@@ -74,6 +98,7 @@
     </style>
   </head>
   <body>
+
     <div class="container">
       {% block content %}
 
